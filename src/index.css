@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 25% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    --primary: 215 45% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 190 75% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 95%;
+    --muted-foreground: 215 15% 50%;
+
+    --accent: 190 75% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 15% 90%;
+    --input: 215 15% 90%;
+    --ring: 190 75% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom portfolio tokens */
+    --hero-gradient-from: 215 45% 25%;
+    --hero-gradient-to: 215 40% 35%;
+    --accent-cyan: 190 75% 45%;
+    --accent-cyan-light: 190 75% 92%;
+    --surface-elevated: 0 0% 100%;
+    --shadow-soft: 215 25% 15%;
+    
+    /* Typography */
+    --font-heading: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 215 30% 8%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 190 75% 45%;
+    --primary-foreground: 215 30% 8%;
+
+    --secondary: 215 20% 20%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 190 75% 45%;
+    --accent-foreground: 215 30% 8%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 20% 95%;
+
+    --border: 215 20% 20%;
+    --input: 215 20% 20%;
+    --ring: 190 75% 45%;
+
+    --surface-elevated: 215 25% 14%;
+    --accent-cyan-light: 190 75% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-20;
+  }
+
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--hero-gradient-from)), hsl(var(--hero-gradient-to)));
+  }
+
+  .card-elevated {
+    @apply bg-surface-elevated rounded-xl border border-border shadow-sm hover:shadow-md;
+    transition: var(--transition-smooth);
+  }
+
+  .badge-skill {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-accent-cyan-light text-primary;
+  }
+}
